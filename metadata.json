@@ -1,0 +1,8 @@
+{
+  "name": "عيد ميلاد سعيد محمد مصطفي",
+  "description": "احتفالية عيد ميلاد عصرية وتفاعلية مخصصة لمحمد مصطفي، بتصميم متناسق لجميع الشاشات مع موسيقى وألعاب ورقية وتورتة تفاعلية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

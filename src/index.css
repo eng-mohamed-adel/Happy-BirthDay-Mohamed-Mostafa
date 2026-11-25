@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-display: 'Aref Ruqaa', 'Cairo', Georgia, serif;
+    color-scheme: dark;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    background-color: #060a14;
+    color: #f5f7fa;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #060a14;
+  }
+}
+
+.font-display-calligraphy {
+  font-family: var(--font-display);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Architectural celebration background layers */
+.bg-celebration-canvas {
+  background-color: #060a14;
+  background-image:
+    radial-gradient(ellipse 75% 55% at 50% -10%, rgba(245, 196, 81, 0.16), transparent 65%),
+    radial-gradient(ellipse 55% 45% at 85% 25%, rgba(30, 64, 175, 0.22), transparent 65%),
+    radial-gradient(ellipse 55% 45% at 12% 78%, rgba(180, 120, 35, 0.12), transparent 65%);
+}
+
+.bg-subtle-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Compositor-only smooth keyframes */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes starDrift {
+  0% {
+    transform: translate3d(0, -8vh, 0) scale(0.85);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  85% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate3d(18px, 106vh, 0) scale(1.05);
+    opacity: 0;
+  }
+}
+
+@keyframes candleFlicker {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.88;
+  }
+  35% {
+    transform: translate3d(0, -2px, 0) scale(1.12, 0.94);
+    opacity: 1;
+  }
+  70% {
+    transform: translate3d(1px, 1px, 0) scale(0.95, 1.08);
+    opacity: 0.8;
+  }
+}
+
+@keyframes smokeRise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate3d(6px, -56px, 0) scale(1.7);
+    opacity: 0;
+  }
+}
+
+@keyframes balloonSweep {
+  0% {
+    transform: translate3d(0, 110vh, 0);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate3d(0, -120vh, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes cursorBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes eqBar {
+  0%, 100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-star-drift {
+  animation: starDrift linear infinite;
+}
+
+.animate-candle-flicker {
+  animation: candleFlicker 1.9s ease-in-out infinite;
+}
+
+.animate-smoke-rise {
+  animation: smokeRise 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-balloon-sweep {
+  animation: balloonSweep 9.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-cursor-blink {
+  animation: cursorBlink 0.9s steps(1) infinite;
+}
+
+@keyframes flameDance {
+  0%, 100% {
+    transform: rotate(-3deg) scale(1, 1);
+    opacity: 0.95;
+  }
+  25% {
+    transform: rotate(3.5deg) scale(0.94, 1.09);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(-2deg) scale(1.04, 0.93);
+    opacity: 0.9;
+  }
+  75% {
+    transform: rotate(2.5deg) scale(0.97, 1.06);
+    opacity: 1;
+  }
+}
+
+.animate-flame-dance {
+  transform-box: fill-box;
+  transform-origin: 50% 95%;
+  animation: flameDance 1.35s ease-in-out infinite;
+}
+
+.animate-eq-1 {
+  animation: eqBar 0.85s ease-in-out infinite;
+}
+.animate-eq-2 {
+  animation: eqBar 0.65s ease-in-out 0.15s infinite;
+}
+.animate-eq-3 {
+  animation: eqBar 0.95s ease-in-out 0.3s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-float-slow,
+  .animate-star-drift,
+  .animate-candle-flicker,
+  .animate-flame-dance,
+  .animate-smoke-rise,
+  .animate-balloon-sweep,
+  .animate-eq-1,
+  .animate-eq-2,
+  .animate-eq-3 {
+    animation: none !important;
+  }
+}
